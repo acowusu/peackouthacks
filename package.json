@@ -8,7 +8,13 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@iconify-icons/bx": "^1.1.2",
+    "@iconify/icons-bx": "^1.1.2",
+    "@iconify/vue": "^3.0.0",
+    "@iconify/vue2": "^1.0.0",
     "core-js": "^3.6.5",
+    "element-ui": "^2.15.6",
+    "firebase": "^9.0.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuesax": "^4.0.1-alpha.25",

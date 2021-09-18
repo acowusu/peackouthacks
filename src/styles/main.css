@@ -1,0 +1,135 @@
+h1+.card .text h2 {
+    padding-top: 20px!important
+}
+
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 20px 0 -50px;
+    width: 100%
+}
+
+.card:last-of-type {
+    margin-bottom: 0
+}
+
+.card>.text ul {
+    margin-left: 40px;
+    padding-left: 0
+}
+
+.card>.text ul li p {
+    padding-left: 5px!important
+}
+
+.card .text>img {
+    max-width: 600px;
+    display: block;
+    border-radius: 20px
+}
+
+ .example,.card .text>img {
+    width: 100%;
+    margin: 10px auto auto
+}
+ .example {
+    padding: 10px;
+    border-radius: 5px 20px 0 0;
+    border-bottom: 0 solid rgba(0,0,0,.03);
+    background: var(--vs-theme-layout);
+    position: relative;
+    overflow: hidden;
+    transition: all .25s ease;
+    height: auto;
+}
+
+ .example:after {
+    width: 100%;
+    height: 100%;
+    border: 8px solid var(--vs-theme-bg2);
+    left: 0;
+    border-radius: 25px
+}
+ .example:after, .example:before {
+    transition: all .25s ease;
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden
+}
+ .example:before {
+    width: 60px;
+    height: 25px;
+    background: var(--vs-theme-bg2);
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 0 0 8px 8px
+}
+
+ .example.mobile {
+    width: 260px;
+    height: 520px;
+    margin: 20px auto;
+    border-radius: 25px;
+    padding: 30px 20px;
+    overflow: auto
+}
+
+ .example.mobile:after, .example.mobile:before {
+    opacity: 1;
+    visibility: visible
+}
+
+ .example.mobile~.slotcode .code {
+    border-radius: 20px;
+    background: transparent
+}
+
+.card .text h2,.card .text h3,.card .text h4,.card .text h5,.card .text h6 {
+    margin: 0;
+    border-bottom: 0;
+    padding: 15px 20px 10px;
+    transition: all .25s ease;
+    z-index: 200;
+    position: relative
+}
+
+.card .text h2:hover,.card .text h3:hover,.card .text h4:hover,.card .text h5:hover,.card .text h6:hover {
+    padding-left: 40px
+}
+
+.card .text h2 {
+    padding-top: 120px
+}
+
+.card .text p {
+    padding: 5px 20px;
+    margin: 0;
+    z-index: 200;
+    position: relative
+}
+
+.card .text li,.card .text p {
+    font-size: .85rem
+}
+
+@media (max-width: 500px) {
+    .card .text {
+        padding:10px
+    }
+
+    .card .text h2 {
+        font-size: 1.3rem;
+        padding-top: 80px;
+        padding-left: 10px;
+        padding-bottom: 0
+    }
+
+    .card .text p {
+        padding-left: 10px;
+        padding-top: 10px
+    }
+}
