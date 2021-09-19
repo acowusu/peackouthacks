@@ -1,18 +1,16 @@
-if (process.env.NODE_ENV == "development") {
-  require("dotenv").config();
-}
 const pg = require("pg");
 pg.types.setTypeParser(20, "text", parseInt);
 pg.types.setTypeParser(1700, "text", parseFloat);
 
 const { Pool } = pg;
+const functions = require("firebase-functions");
 
 const config = {
-  user: process.env.db_username,
-  password: process.env.db_password,
-  host: process.env.db_host,
-  database: process.env.db_database,
-  port: +process.env.db_port,
+  user: functions.config().database.user,
+  password: functions.config().database.password,
+  host: functions.config().database.host,
+  database: functions.config().database.database,
+  port: +functions.config().database.port,
   ssl: {
     rejectUnauthorized: false,
   },
@@ -23,7 +21,9 @@ module.exports = class db {
    * Represents a book.
    * @constructor
    */
+
   constructor() {
+    console.log(config);
     this.pool = new Pool(config);
   }
   /**

@@ -17,7 +17,16 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaDed when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Donors.vue"),
+      import(/* webpackChunkName: "loggedin" */ "../views/Donors.vue"),
+  },
+  {
+    path: "/connections",
+    name: "Connections",
+    // route level coDe-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaDed when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "loggedin" */ "../views/Connections.vue"),
   },
 ];
 

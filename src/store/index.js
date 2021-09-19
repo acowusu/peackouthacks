@@ -36,6 +36,13 @@ export default new Vuex.Store({
         return null;
       }
     },
+    authToken(state) {
+      if (state.user) {
+        return state.user.accessToken;
+      } else {
+        return "";
+      }
+    },
     name(state) {
       if (state.user) {
         return state.user.displayName;

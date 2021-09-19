@@ -2,16 +2,15 @@ const Geohash = require("ngeohash");
 
 module.exports = function (
   db,
-  { name, lat, long, uid, description, photos, profileurl }
+  { name, lat, lon, uid, description, photos, profileurl }
 ) {
-  const geohash = Geohash.encode(lat, long);
+  const geohash = Geohash.encode(lat, lon);
 
-  db.getRows(
+  return db.getRows(
     /*sql */ `
-    INSERT INTO users (   uid , name , description , photos , profileurl ,
-                         , ref_point , geohash4)
-                         VALUES ($1, $2, $3, $4, $5,ST_MakePoint($6, $7)::GEOGRAPHY ,$8)
+    insert into users ( uid , name , description , photos , profileurl , ref_point , geohash4) 
+VALUES ($1, $2, $3, $4, $5,ST_MakePoint($6, $7)::GEOGRAPHY , SUBSTRING($8 FOR 3));
     `,
-    [uid, name, description, photos, profileurl, lat, long, geohash]
+    [uid, name, description, { photos }, profileurl, lat, lon, geohash]
   );
 };

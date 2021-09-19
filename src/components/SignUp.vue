@@ -219,7 +219,7 @@ export default {
       setDoc(doc(this.$firestore, "users", this.$store.getters.uid), userRecord)
         .then(() => {
           if (this.userType === "donor") {
-            this.$router.replace("connections");
+            this.$router.replace("donors");
           } else {
             this.$router.replace("donors");
           }

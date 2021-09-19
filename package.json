@@ -12,6 +12,8 @@
     "@iconify/icons-bx": "^1.1.2",
     "@iconify/vue": "^3.0.0",
     "@iconify/vue2": "^1.0.0",
+    "@sendgrid/mail": "^7.4.6",
+    "axios": "^0.21.4",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.6",
     "firebase": "^9.0.2",

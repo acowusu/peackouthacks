@@ -53,7 +53,7 @@
               </vs-button>
             </template>
             <template #interactions>
-              <vs-button danger icon @click="connect(result.uid)">
+              <vs-button danger icon>
                 <Icon :icon="icons.bxLink" />
               </vs-button>
 
@@ -108,14 +108,7 @@
 
         <template #footer>
           <div class="con-footer">
-            <vs-button
-              @click="
-                () => {
-                  showingProfileDetails = false;
-                  connect(currentProfile.uid);
-                }
-              "
-            >
+            <vs-button @click="showingProfileDetails = false">
               Connect
             </vs-button>
             <vs-button @click="showingProfileDetails = false" dark transparent>
@@ -185,37 +178,6 @@ export default {
     openProfileDetails(profile) {
       this.showingProfileDetails = true;
       this.currentProfile = profile;
-    },
-    connect(reciever) {
-      const host =
-        process.env.NODE_ENV === "development"
-          ? "http://127.0.0.1:5001/handmedown-19559/us-central1/mail/connect"
-          : "https://us-central1-handmedown-19559.cloudfunctions.net/mail/connect";
-      axios
-        .post(
-          host,
-          { reciever, currentUser: this.$store.getters.authToken },
-          {
-            headers: {
-              // Overwrite Axios's automatically set Content-Type
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then(() => {
-          this.$vs.notification({
-            title: "Connection request sent",
-            color: "success",
-            text: "check your email for a reply in the coming days.",
-          });
-        })
-        .catch((error) => {
-          this.$vs.notification({
-            title: "Network Error",
-            color: "danger",
-            text: error.message,
-          });
-        });
     },
     updateSearch() {
       const host =
